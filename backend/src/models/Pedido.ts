@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn } from "typeorm";
 import  User from "./User";
 import Cliente from "./Cliente";
 
@@ -14,7 +14,7 @@ class Pedido {
     @Column({ type: 'varchar', nullable: true })
     descricao: string;
 
-    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn({ type: 'timestamp' })
     data_criacao: Date;
 
     @Column({ type: 'timestamp', nullable: false })

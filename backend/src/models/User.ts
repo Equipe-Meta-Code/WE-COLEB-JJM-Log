@@ -1,4 +1,4 @@
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
 import Role from "./Role";
 
 @Entity("users")
@@ -21,7 +21,7 @@ class User {
     @Column('varchar', { length: 100, nullable: true })
     cargo: string;
 
-    @Column('timestamp', { default: 'CURRENT_TIMESTAMP'} )
+    @CreateDateColumn({ type: 'timestamp' })
     data_criacao: Date;
 
     @ManyToMany(() => Role)

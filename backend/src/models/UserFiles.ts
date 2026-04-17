@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
 
 @Entity('user_files')
 class UserFiles {
@@ -21,7 +21,7 @@ class UserFiles {
     @Column({ type: 'varchar', nullable: false })
     tipo: string;
 
-    @Column('timestamp', { default: 'CURRENT_TIMESTAMP'} )
+    @CreateDateColumn({ type: 'timestamp' })
     data_criacao: Date;
     
 }

@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
 import Permission from "./Permission";
 
 @Entity("roles")
@@ -12,7 +12,7 @@ class Role {
     @Column('varchar')
     descricao: string;
 
-    @Column('timestamp', { default: 'CURRENT_TIMESTAMP'} )
+    @CreateDateColumn({ type: 'timestamp' })
     data_criacao: Date;
 
     @ManyToMany(() => Permission)

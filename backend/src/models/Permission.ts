@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
 
 @Entity("permissions")
 class Permission {
@@ -11,7 +11,7 @@ class Permission {
     @Column('varchar')
     descricao: string;
 
-    @Column('timestamp', { default: 'CURRENT_TIMESTAMP'} )
+    @CreateDateColumn({ type: 'timestamp' })
     data_criacao: Date;
 }
 

@@ -25,7 +25,8 @@ class UserController {
         //Serve para criptografar a senha do usuário
         const senhaHashed = await hash(senha, 8);
 
-        const existsRoles = await roleRepository.findByIds(roles);
+        const rolesArray = Array.isArray(roles) ? roles : [roles];
+        const existsRoles = await roleRepository.findByIds(rolesArray);
 
         const user = userRepository.create({
             nome,
